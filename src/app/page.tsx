@@ -117,6 +117,59 @@ export default function Home() {
           </div>
         </motion.div>
 
+        {/* Project 4 */}
+        <motion.div variants={itemVariants} className={`${styles.bentoCard} ${styles.projectCellWide}`}>
+          <div className={styles.cardHeader}>
+            <span className={styles.cardTitle}>ChronoGuard AI</span>
+            <a href="https://github.com/Anshsurana123/ChronoGuard" target="_blank" rel="noopener noreferrer" className={styles.iconWrapper}>
+              <ArrowUpRight size={18} />
+            </a>
+          </div>
+          <p className={styles.projectDesc}>
+            Real-time video surveillance system with SAM 2 object tracking and privacy blurring. Distributed architecture with edge streaming and cloud inference.
+          </p>
+          <div className={styles.projectTags}>
+            <span className={styles.tag}>Python</span>
+            <span className={styles.tag}>Computer Vision</span>
+            <span className={styles.tag}>WebSockets</span>
+          </div>
+        </motion.div>
+
+        {/* Project 5 */}
+        <motion.div variants={itemVariants} className={`${styles.bentoCard} ${styles.projectCellSmall}`}>
+          <div className={styles.cardHeader}>
+            <span className={styles.cardTitle}>Sentinel Engine</span>
+            <a href="https://github.com/Anshsurana123/sentinel" target="_blank" rel="noopener noreferrer" className={styles.iconWrapper}>
+              <ArrowUpRight size={18} />
+            </a>
+          </div>
+          <p className={styles.projectDesc}>
+            Student intelligence aggregator and academic lineage engine. Translates physics to calculus via Rosetta Engine and verifies claims with SVG-based evidence graphs.
+          </p>
+          <div className={styles.projectTags}>
+            <span className={styles.tag}>TypeScript</span>
+            <span className={styles.tag}>Next.js</span>
+            <span className={styles.tag}>AI Orchestration</span>
+          </div>
+        </motion.div>
+
+        {/* Project 6 */}
+        <motion.div variants={itemVariants} className={`${styles.bentoCard} ${styles.projectCellSmall}`}>
+          <div className={styles.cardHeader}>
+            <span className={styles.cardTitle}>Bifröst Dashboard</span>
+            <a href="https://github.com/Anshsurana123/bifrost-dashboard" target="_blank" rel="noopener noreferrer" className={styles.iconWrapper}>
+              <ArrowUpRight size={18} />
+            </a>
+          </div>
+          <p className={styles.projectDesc}>
+            Zero-trust API key management and AI proxy administration panel.
+          </p>
+          <div className={styles.projectTags}>
+            <span className={styles.tag}>TypeScript</span>
+            <span className={styles.tag}>Next.js</span>
+          </div>
+        </motion.div>
+
         {/* Contact Cell */}
         <motion.div variants={itemVariants} className={`${styles.bentoCard} ${styles.contactCell}`}>
           <div className={styles.contactText}>Let's build together.</div>
