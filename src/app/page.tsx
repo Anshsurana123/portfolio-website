@@ -170,6 +170,44 @@ export default function Home() {
           </div>
         </motion.div>
 
+        {/* Project 7 */}
+        <motion.div variants={itemVariants} className={`${styles.bentoCard} ${styles.projectCellWide}`}>
+          <div className={styles.cardHeader}>
+            <span className={styles.cardTitle}>Job Recruitment AI</span>
+            <a href="https://github.com/Anshsurana123/job-recruitment" target="_blank" rel="noopener noreferrer" className={styles.iconWrapper}>
+              <ArrowUpRight size={18} />
+            </a>
+          </div>
+          <p className={styles.projectDesc}>
+            Production-grade recruiting engine replacing keyword-matching ATS with a multi-agent SLM swarm. Features Career Velocity calculation, custom OCR resume parsing, and an interactive recruiter copilot.
+          </p>
+          <div className={styles.projectTags}>
+            <span className={styles.tag}>Python</span>
+            <span className={styles.tag}>FastAPI</span>
+            <span className={styles.tag}>SLM Swarm</span>
+            <span className={styles.tag}>OCR</span>
+          </div>
+        </motion.div>
+
+        {/* Project 8 */}
+        <motion.div variants={itemVariants} className={`${styles.bentoCard} ${styles.projectCellWide}`}>
+          <div className={styles.cardHeader}>
+            <span className={styles.cardTitle}>DevLens</span>
+            <a href="https://github.com/Anshsurana123/dev-lens-IBM-BOB" target="_blank" rel="noopener noreferrer" className={styles.iconWrapper}>
+              <ArrowUpRight size={18} />
+            </a>
+          </div>
+          <p className={styles.projectDesc}>
+            AI-powered developer tool providing instant, senior-level code reviews, OWASP security audits, and comprehensive repository documentation. Supports a Next.js interface and custom IDE slash commands.
+          </p>
+          <div className={styles.projectTags}>
+            <span className={styles.tag}>TypeScript</span>
+            <span className={styles.tag}>Next.js</span>
+            <span className={styles.tag}>Gemini AI</span>
+            <span className={styles.tag}>Developer Tool</span>
+          </div>
+        </motion.div>
+
         {/* Contact Cell */}
         <motion.div variants={itemVariants} className={`${styles.bentoCard} ${styles.contactCell}`}>
           <div className={styles.contactText}>Let's build together.</div>
