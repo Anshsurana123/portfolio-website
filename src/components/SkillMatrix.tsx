@@ -10,21 +10,21 @@ export default function SkillMatrix() {
       title: "Core Languages",
       icon: <Terminal size={18} />,
       skills: [
+        { name: "Rust", level: 92, tag: "Vector DB Engine" },
+        { name: "Go", level: 88, tag: "Bitfrost Gateway" },
         { name: "Python", level: 95, tag: "Primary / Daily" },
         { name: "TypeScript", level: 92, tag: "Full-Stack" },
         { name: "Kotlin", level: 85, tag: "Android AI" },
-        { name: "C++", level: 78, tag: "NDK / Inference" },
-        { name: "SQL", level: 88, tag: "PostgreSQL" },
       ],
     },
     {
-      title: "AI & Intelligence Swarms",
+      title: "AI & Systems Architecture",
       icon: <Cpu size={18} />,
       skills: [
-        { name: "PyTorch & OpenCV", level: 90, tag: "Vision Systems" },
-        { name: "SAM 2 Tracking", level: 88, tag: "ChronoGuard AI" },
-        { name: "SLM Swarm Orchestration", level: 92, tag: "Agentic Workflows" },
-        { name: "Gemini / LLM APIs", level: 95, tag: "Agentic SDKs" },
+        { name: "HNSW & Vector Indexing", level: 94, tag: "Vector DB" },
+        { name: "SAM 3 & Vision Tracking", level: 90, tag: "ChronoGuard AI" },
+        { name: "ONNX Runtime & Local AI", level: 88, tag: "Jago Voice AI" },
+        { name: "BM25F + BGE Hybrid Search", level: 92, tag: "Talent Radar" },
       ],
     },
     {

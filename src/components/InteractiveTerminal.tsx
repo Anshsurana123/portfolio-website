@@ -68,11 +68,11 @@ export default function InteractiveTerminal() {
       case "projects":
         response = (
           <div className={styles.projectList}>
-            <div>🔹 <strong>Vector DB From Scratch</strong> — Custom HNSW indexing & SIMD vector database (C++/Python)</div>
-            <div>🔹 <strong>Jagrut</strong> — Offline Android AI assistant running local GGUF models (Kotlin/NDK)</div>
-            <div>🔹 <strong>ChronoGuard AI</strong> — Real-time SAM 2 surveillance & privacy redaction engine</div>
-            <div>🔹 <strong>Bitfrost (Bifröst)</strong> — Zero-trust API key management & AI proxy admin panel</div>
-            <div>🔹 <strong>Job Recruitment AI</strong> — Multi-agent SLM candidate matching swarm (FastAPI/AI)</div>
+            <div>🔹 <strong>Vector DB From Scratch</strong> — HNSW indexing, 8x PQ compression & WAL crash recovery (Rust/Axum)</div>
+            <div>🔹 <strong>Jago (Jagrut)</strong> — On-device ONNX wake word & Hinglish voice assistant (Kotlin/Android/ONNX)</div>
+            <div>🔹 <strong>ChronoGuard AI</strong> — Real-time SAM 3 surveillance & geofencing engine (Python/FastAPI/WebSockets)</div>
+            <div>🔹 <strong>Bitfrost (Bifröst)</strong> — Zero-trust AI API gateway & pgvector semantic cache (Go/Supabase/Next.js)</div>
+            <div>🔹 <strong>Talent Radar</strong> — 4-stage hybrid BM25F + BGE candidate retrieval & MiniLM ranker (Python/Docker)</div>
             <div style={{ marginTop: "6px", fontSize: "0.82rem", opacity: 0.8 }}>Scroll down to the Projects section to inspect complete architecture specs & code!</div>
           </div>
         );
@@ -81,10 +81,10 @@ export default function InteractiveTerminal() {
       case "stack":
         response = (
           <div>
-            ⚡ <strong>Core Languages:</strong> Python, TypeScript, Kotlin, SQL<br />
-            🌐 <strong>Frontend / Frameworks:</strong> Next.js, React, HTML5/CSS3, Framer Motion<br />
-            🤖 <strong>AI & Systems:</strong> PyTorch, OpenCV, SAM 2, FastAPI, SLM Swarms, PostgreSQL<br />
-            🛠️ <strong>DevOps & Tools:</strong> Docker, Git, GitHub Actions, Linux CLI
+            ⚡ <strong>Core Languages:</strong> Rust, Go, Python, TypeScript, Kotlin, SQL<br />
+            🌐 <strong>Frontend & Mobile:</strong> Next.js (App Router), React, Android Native (Kotlin), Tailwind CSS<br />
+            🤖 <strong>AI & Systems:</strong> Meta SAM 3, ONNX Runtime, BGE Embeddings, HNSW, FastAPI, Supabase / pgvector<br />
+            🛠️ <strong>DevOps & Tools:</strong> Docker, Git, GitHub Actions, Linux NDK, WebSockets
           </div>
         );
         break;
