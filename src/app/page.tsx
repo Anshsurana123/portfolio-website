@@ -13,11 +13,11 @@ export default function Home() {
       <HeaderNav />
       <HeroSection />
       <div className="divider" />
+      <InteractiveTerminal />
+      <div className="divider" />
       <ProjectShowcase />
       <div className="divider" />
       <SkillMatrix />
-      <div className="divider" />
-      <InteractiveTerminal />
       <div className="divider" />
       <ContactSection />
     </main>

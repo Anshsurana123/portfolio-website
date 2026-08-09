@@ -43,9 +43,9 @@ export default function HeaderNav() {
   };
 
   const navLinks = [
+    { name: "CLI", href: "#terminal" },
     { name: "Projects", href: "#projects" },
     { name: "Stack", href: "#stack" },
-    { name: "Terminal", href: "#terminal" },
     { name: "Contact", href: "#contact" },
   ];
 
