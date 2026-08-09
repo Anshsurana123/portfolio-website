@@ -68,13 +68,12 @@ export default function InteractiveTerminal() {
       case "projects":
         response = (
           <div className={styles.projectList}>
-            <div>🔹 <strong>AI Daily Builder</strong> — Automated daily micro-project generator (Python/AI)</div>
-            <div>🔹 <strong>ChronoGuard AI</strong> — Real-time SAM 2 surveillance & privacy blurring</div>
-            <div>🔹 <strong>Job Recruitment AI</strong> — Multi-agent SLM candidate matching swarm</div>
-            <div>🔹 <strong>DevLens</strong> — OWASP security audit & senior-level code review AI</div>
-            <div>🔹 <strong>Sentinel Engine</strong> — Academic lineage engine & claim verification</div>
-            <div>🔹 <strong>Jago</strong> — Privacy-first offline Android AI assistant (Kotlin)</div>
-            <div style={{ marginTop: "4px", fontSize: "0.82rem", opacity: 0.8 }}>Scroll down to the Projects section to open detailed spec modals!</div>
+            <div>🔹 <strong>Vector DB From Scratch</strong> — Custom HNSW indexing & SIMD vector database (C++/Python)</div>
+            <div>🔹 <strong>Jagrut</strong> — Offline Android AI assistant running local GGUF models (Kotlin/NDK)</div>
+            <div>🔹 <strong>ChronoGuard AI</strong> — Real-time SAM 2 surveillance & privacy redaction engine</div>
+            <div>🔹 <strong>Bitfrost (Bifröst)</strong> — Zero-trust API key management & AI proxy admin panel</div>
+            <div>🔹 <strong>Job Recruitment AI</strong> — Multi-agent SLM candidate matching swarm (FastAPI/AI)</div>
+            <div style={{ marginTop: "6px", fontSize: "0.82rem", opacity: 0.8 }}>Scroll down to the Projects section to inspect complete architecture specs & code!</div>
           </div>
         );
         break;

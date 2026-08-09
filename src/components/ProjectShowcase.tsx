@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUpRight, Code2, Layers, Sparkles, Terminal } from "lucide-react";
+import { ArrowUpRight, Layers, Sparkles } from "lucide-react";
 import styles from "./ProjectShowcase.module.css";
 import ProjectModal, { ProjectData } from "./ProjectModal";
 
@@ -12,22 +12,41 @@ export default function ProjectShowcase() {
 
   const projects: ProjectData[] = [
     {
-      id: "ai-daily-builder",
-      title: "AI Daily Builder",
-      category: "ai",
-      shortDesc: "Autonomous AI system that constructs and deploys micro-applications every single day.",
-      fullDesc: "An end-to-end automated pipeline powered by Python agent orchestrators and GitHub Actions. Automatically generates code, runs lint & build validations, and deploys daily micro-apps.",
-      tech: ["Python", "AI Swarm", "GitHub Actions", "FastAPI"],
-      githubUrl: "https://github.com/Anshsurana123/ai-daily-builder",
+      id: "vector-db",
+      title: "Vector DB From Scratch",
+      category: "systems",
+      shortDesc: "High-performance custom vector database built from scratch with HNSW indexing and Cosine/L2 similarity search.",
+      fullDesc: "A custom high-dimensional vector search engine built from first principles. Implements Hierarchical Navigable Small World (HNSW) graph indexing, SIMD vector distance calculations, and memory-mapped persistence.",
+      tech: ["Python", "C++", "Vector Search", "HNSW", "Algorithms"],
+      githubUrl: "https://github.com/Anshsurana123/vector-db-from-scratch",
       featured: true,
       specDetails: {
-        architecture: "Event-driven Python scheduler triggering agentic code generation workflows with isolated sandboxed test suites.",
+        architecture: "HNSW graph index structure with memory-mapped disk persistence and SIMD-accelerated dot product and cosine distance kernels.",
         highlights: [
-          "100% Zero-human intervention daily commit pipeline",
-          "Automated linting and test verification before deployment",
-          "Self-healing error recovery loop for broken builds"
+          "Sub-millisecond nearest neighbor query latency on 100k+ vector sets",
+          "Custom HNSW graph construction with logarithmic search complexity",
+          "Memory-mapped binary file storage for minimal RAM footprint"
         ],
-        metrics: "42+ consecutive days without pipeline failures"
+        metrics: "Sub-5ms query latency @ 99.4% recall rate"
+      }
+    },
+    {
+      id: "jagrut",
+      title: "Jagrut",
+      category: "systems",
+      shortDesc: "Privacy-first offline Android AI assistant with native local LLM inference.",
+      fullDesc: "Native Android application running local GGUF quantized language models entirely on-device without internet dependency or data leakage risks.",
+      tech: ["Kotlin", "Android", "On-Device AI", "C++ NDK"],
+      githubUrl: "https://github.com/Anshsurana123/jagrut",
+      featured: true,
+      specDetails: {
+        architecture: "Native Kotlin app interfacing with C++ NDK bindings for hardware-accelerated local GGUF model execution.",
+        highlights: [
+          "Zero network permissions required — 100% offline & private",
+          "Sub-100ms first token response on mobile NPU / GPU",
+          "Encrypted local vector memory and conversation storage"
+        ],
+        metrics: "100% local privacy guarantee with zero cloud API calls"
       }
     },
     {
@@ -50,6 +69,25 @@ export default function ProjectShowcase() {
       }
     },
     {
+      id: "bitfrost",
+      title: "Bitfrost (Bifröst)",
+      category: "fullstack",
+      shortDesc: "Zero-trust API key management and AI proxy administration panel.",
+      fullDesc: "Administrative control panel for controlling rate limits, monitoring AI token expenditure, and managing dynamic API keys securely across enterprise microservices.",
+      tech: ["TypeScript", "Next.js", "Node.js", "Redis", "Security"],
+      githubUrl: "https://github.com/Anshsurana123/Bitfrost",
+      featured: true,
+      specDetails: {
+        architecture: "Next.js admin dashboard backed by Redis token bucket rate limiters and OAuth2 identity management.",
+        highlights: [
+          "Real-time token usage telemetry analytics",
+          "Sub-millisecond API proxy request routing",
+          "Role-based access control (RBAC) security"
+        ],
+        metrics: "Sub-millisecond proxy overhead latency"
+      }
+    },
+    {
       id: "job-recruitment",
       title: "Job Recruitment AI",
       category: "ai",
@@ -66,6 +104,24 @@ export default function ProjectShowcase() {
           "Interactive copilot interface for real-time candidate query"
         ],
         metrics: "94% higher candidate matching precision vs traditional ATS"
+      }
+    },
+    {
+      id: "ai-daily-builder",
+      title: "AI Daily Builder",
+      category: "ai",
+      shortDesc: "Autonomous AI system that constructs and deploys micro-applications every single day.",
+      fullDesc: "An end-to-end automated pipeline powered by Python agent orchestrators and GitHub Actions. Automatically generates code, runs lint & build validations, and deploys daily micro-apps.",
+      tech: ["Python", "AI Swarm", "GitHub Actions", "FastAPI"],
+      githubUrl: "https://github.com/Anshsurana123/ai-daily-builder",
+      specDetails: {
+        architecture: "Event-driven Python scheduler triggering agentic code generation workflows with isolated sandboxed test suites.",
+        highlights: [
+          "100% Zero-human intervention daily commit pipeline",
+          "Automated linting and test verification before deployment",
+          "Self-healing error recovery loop for broken builds"
+        ],
+        metrics: "42+ consecutive days without pipeline failures"
       }
     },
     {
@@ -119,49 +175,15 @@ export default function ProjectShowcase() {
           "Instant pull request diff reviewer"
         ]
       }
-    },
-    {
-      id: "jago",
-      title: "Jago Android Assistant",
-      category: "systems",
-      shortDesc: "Privacy-first offline Android AI assistant.",
-      fullDesc: "On-device native Android application running local GGUF quantised LLM inference without requiring internet connection or sending data to third parties.",
-      tech: ["Kotlin", "Android", "On-Device AI", "C++"],
-      githubUrl: "https://github.com/Anshsurana123/jago",
-      specDetails: {
-        architecture: "Native Kotlin app interfacing with C++ NDK bindings for hardware-accelerated local GGUF model execution.",
-        highlights: [
-          "Zero network permissions required — 100% offline",
-          "Sub-100ms first token response on mobile NPU",
-          "Encrypted local conversation storage"
-        ]
-      }
-    },
-    {
-      id: "bifrost",
-      title: "Bifröst Dashboard",
-      category: "fullstack",
-      shortDesc: "Zero-trust API key management and AI proxy administration panel.",
-      fullDesc: "Administrative control panel for controlling rate limits, monitoring AI token expenditure, and managing dynamic API keys securely across enterprise microservices.",
-      tech: ["TypeScript", "Next.js", "Node.js", "Redis"],
-      githubUrl: "https://github.com/Anshsurana123/bifrost-dashboard",
-      specDetails: {
-        architecture: "Next.js admin dashboard backed by Redis token bucket rate limiters and OAuth2 identity management.",
-        highlights: [
-          "Real-time token usage telemetry analytics",
-          "Sub-millisecond API proxy request routing",
-          "Role-based access control (RBAC) security"
-        ]
-      }
     }
   ];
 
   const categories = [
     { id: "all", label: "All Projects" },
+    { id: "systems", label: "Systems & DBs" },
     { id: "ai", label: "AI & Swarms" },
     { id: "vision", label: "Vision & Edge" },
     { id: "fullstack", label: "Full Stack" },
-    { id: "systems", label: "Systems & Tools" },
   ];
 
   const filteredProjects = activeCategory === "all"
@@ -175,9 +197,9 @@ export default function ProjectShowcase() {
           <Sparkles size={14} />
           <span>Selected Portfolio</span>
         </div>
-        <h2 className={styles.sectionTitle}>Featured Engineering Work</h2>
+        <h2 className={styles.sectionTitle}>Top Featured Engineering Projects</h2>
         <p className={styles.sectionSub}>
-          Click on any card to view the complete system architecture and technical specs.
+          Click on any project to view complete system architecture, performance metrics, and specs.
         </p>
       </div>
 
