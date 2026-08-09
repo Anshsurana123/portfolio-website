@@ -1,131 +1,74 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Sparkles, Volume2, VolumeX, Palette, Code2, Terminal, FolderGit2, Mail } from "lucide-react";
+import Link from "next/link";
 import styles from "./HeaderNav.module.css";
 
-interface HeaderNavProps {
-  currentTheme: string;
-  setTheme: (theme: string) => void;
-}
-
-export default function HeaderNav({ currentTheme, setTheme }: HeaderNavProps) {
-  const [soundEnabled, setSoundEnabled] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+export default function HeaderNav() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 20);
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const playClickSound = () => {
-    if (!soundEnabled) return;
-    try {
-      const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
-      if (!AudioCtx) return;
-      const ctx = new AudioCtx();
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
-
-      osc.type = "sine";
-      osc.frequency.setValueAtTime(800, ctx.currentTime);
-      osc.frequency.exponentialRampToValueAtTime(1200, ctx.currentTime + 0.05);
-
-      gain.gain.setValueAtTime(0.05, ctx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.05);
-
-      osc.connect(gain);
-      gain.connect(ctx.destination);
-
-      osc.start();
-      osc.stop(ctx.currentTime + 0.05);
-    } catch {
-      // Audio context error ignore
-    }
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen((prev) => !prev);
   };
 
-  const themes = [
-    { id: "cyber", label: "Cyber Cyan", color: "#06b6d4" },
-    { id: "aurora", label: "Aurora Emerald", color: "#10b981" },
-    { id: "violet", label: "Neon Violet", color: "#a855f7" },
-    { id: "sunset", label: "Sunset Ember", color: "#f97316" },
+  const navLinks = [
+    { name: "Projects", href: "#projects" },
+    { name: "Stack", href: "#stack" },
+    { name: "Terminal", href: "#terminal" },
+    { name: "Contact", href: "#contact" },
   ];
 
-  const toggleSound = () => {
-    setSoundEnabled(!soundEnabled);
-    if (!soundEnabled) playClickSound();
-  };
-
   return (
-    <header className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}>
-      <div className={styles.navContainer}>
-        {/* Logo */}
-        <a href="#" className={styles.logo} onClick={playClickSound}>
-          <span className={styles.logoIcon}>
-            <Code2 size={20} />
-          </span>
+    <header className={`${styles.header} ${isScrolled ? styles.scrolled : ""}`}>
+      <div className={styles.container}>
+        <div className={styles.logoContainer}>
+          <div className={styles.logoMark}>AS</div>
           <span className={styles.logoText}>Ansh Surana</span>
-        </a>
+        </div>
 
-        {/* Navigation Links */}
-        <nav className={styles.navLinks}>
-          <a href="#hero" className={styles.navLink} onClick={playClickSound}>
-            Home
-          </a>
-          <a href="#terminal" className={styles.navLink} onClick={playClickSound}>
-            <Terminal size={14} className={styles.linkIcon} /> CLI
-          </a>
-          <a href="#projects" className={styles.navLink} onClick={playClickSound}>
-            <FolderGit2 size={14} className={styles.linkIcon} /> Work
-          </a>
-          <a href="#stack" className={styles.navLink} onClick={playClickSound}>
-            <Sparkles size={14} className={styles.linkIcon} /> Stack
-          </a>
-          <a href="#contact" className={styles.navLink} onClick={playClickSound}>
-            <Mail size={14} className={styles.linkIcon} /> Contact
-          </a>
+        <nav className={styles.desktopNav}>
+          {navLinks.map((link) => (
+            <Link key={link.name} href={link.href} className={styles.link}>
+              {link.name}
+            </Link>
+          ))}
         </nav>
 
-        {/* Right Controls */}
-        <div className={styles.controls}>
-          {/* Availability Badge */}
-          <div className={styles.statusBadge}>
-            <span className={styles.beacon}></span>
-            <span className={styles.statusText}>Available</span>
-          </div>
-
-          {/* Theme Selector */}
-          <div className={styles.themeSelector}>
-            <Palette size={16} className={styles.themeIcon} />
-            <div className={styles.themeDots}>
-              {themes.map((t) => (
-                <button
-                  key={t.id}
-                  title={t.label}
-                  onClick={() => {
-                    setTheme(t.id);
-                    playClickSound();
-                  }}
-                  className={`${styles.themeDot} ${currentTheme === t.id ? styles.activeTheme : ""}`}
-                  style={{ backgroundColor: t.color }}
-                />
-              ))}
-            </div>
-          </div>
-
-          {/* Audio Toggle */}
-          <button
-            onClick={toggleSound}
-            className={`${styles.iconBtn} ${soundEnabled ? styles.activeIconBtn : ""}`}
-            title={soundEnabled ? "Mute UI Audio" : "Enable UI Beeps"}
-          >
-            {soundEnabled ? <Volume2 size={16} /> : <VolumeX size={16} />}
-          </button>
-        </div>
+        <button 
+          className={styles.hamburger} 
+          onClick={toggleMobileMenu}
+          aria-label="Toggle menu"
+        >
+          <span className={`${styles.hamburgerLine} ${isMobileMenuOpen ? styles.hamburgerLineOpen1 : ""}`} />
+          <span className={`${styles.hamburgerLine} ${isMobileMenuOpen ? styles.hamburgerLineOpen2 : ""}`} />
+          <span className={`${styles.hamburgerLine} ${isMobileMenuOpen ? styles.hamburgerLineOpen3 : ""}`} />
+        </button>
       </div>
+
+      {isMobileMenuOpen && (
+        <div className={styles.mobileNav}>
+          {navLinks.map((link) => (
+            <Link 
+              key={link.name} 
+              href={link.href} 
+              className={styles.mobileLink}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              {link.name}
+            </Link>
+          ))}
+        </div>
+      )}
     </header>
   );
 }
