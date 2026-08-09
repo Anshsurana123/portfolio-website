@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ArrowDown, Flame, Terminal, Sparkles, Send, Clock, ShieldCheck } from "lucide-react";
+import { ArrowDown, Terminal, Sparkles, Send, Clock, ShieldCheck } from "lucide-react";
 import styles from "./HeroSection.module.css";
 
 export default function HeroSection() {
@@ -53,10 +53,6 @@ export default function HeroSection() {
       >
         {/* Top Meta Badges */}
         <div className={styles.metaRow}>
-          <div className={styles.streakBadge}>
-            <Flame size={16} className={styles.flameIcon} />
-            <span>42-Day Shipping Streak</span>
-          </div>
 
           {timeString && (
             <div className={styles.clockBadge}>

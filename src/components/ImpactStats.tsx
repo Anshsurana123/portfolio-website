@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FolderCheck, Flame, GitBranch, Zap } from "lucide-react";
+import { FolderCheck, Layers, GitBranch, Zap } from "lucide-react";
 import styles from "./ImpactStats.module.css";
 
 export default function ImpactStats() {
@@ -13,10 +13,10 @@ export default function ImpactStats() {
       icon: <FolderCheck size={24} />,
     },
     {
-      label: "Shipping Streak",
-      value: "42 Days",
-      desc: "Daily automated commits & builds",
-      icon: <Flame size={24} />,
+      label: "Production Repos",
+      value: "10+",
+      desc: "Open source AI & systems projects",
+      icon: <Layers size={24} />,
     },
     {
       label: "Open Source",

@@ -50,7 +50,6 @@ export default function InteractiveTerminal() {
             <div><span className={styles.cmdHighlight}>projects</span> - Featured open-source & production projects</div>
             <div><span className={styles.cmdHighlight}>stack</span> - Tech stack & languages breakdown</div>
             <div><span className={styles.cmdHighlight}>contact</span> - How to get in touch & social links</div>
-            <div><span className={styles.cmdHighlight}>streak</span> - Daily shipping stats & status</div>
             <div><span className={styles.cmdHighlight}>clear</span> - Clear output console</div>
           </div>
         );
@@ -99,16 +98,6 @@ export default function InteractiveTerminal() {
         );
         break;
 
-      case "streak":
-        response = (
-          <div>
-            🔥 <strong>Shipping Streak:</strong> 42 Consecutive Days<br />
-            📦 <strong>Repos Shipped:</strong> 15+ Production Repositories<br />
-            ⚡ <strong>Status:</strong> Active & Shipped Today!
-          </div>
-        );
-        break;
-
       case "clear":
         setLogs([]);
         setInputVal("");
@@ -133,7 +122,7 @@ export default function InteractiveTerminal() {
     }
   };
 
-  const quickChips = ["help", "whoami", "projects", "stack", "contact", "streak", "clear"];
+  const quickChips = ["help", "whoami", "projects", "stack", "contact", "clear"];
 
   return (
     <section id="terminal" className={styles.terminalSection}>

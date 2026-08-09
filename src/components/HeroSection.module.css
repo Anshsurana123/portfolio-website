@@ -26,7 +26,7 @@
   margin-bottom: 2rem;
 }
 
-.streakBadge, .clockBadge, .verificationBadge {
+.clockBadge, .verificationBadge {
   display: flex;
   align-items: center;
   gap: 0.45rem;
@@ -37,16 +37,6 @@
   font-size: 0.82rem;
   font-weight: 500;
   backdrop-filter: blur(10px);
-}
-
-.flameIcon {
-  color: #f97316;
-  animation: pulseFlame 1.5s ease-in-out infinite alternate;
-}
-
-@keyframes pulseFlame {
-  from { transform: scale(1); filter: drop-shadow(0 0 2px #f97316); }
-  to { transform: scale(1.2); filter: drop-shadow(0 0 8px #f97316); }
 }
 
 .clockIcon {
