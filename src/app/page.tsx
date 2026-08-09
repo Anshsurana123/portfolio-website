@@ -1,234 +1,47 @@
 "use client";
 
-import { motion, Variants } from "framer-motion";
-import { ArrowUpRight, Code2, Terminal, Smartphone, Database, Sparkles, Mail, Globe, Cpu } from "lucide-react";
-import styles from "./page.module.css";
-import Link from "next/link";
+import { useState, useEffect } from "react";
+import ParticleBackground from "@/components/ParticleBackground";
+import HeaderNav from "@/components/HeaderNav";
+import HeroSection from "@/components/HeroSection";
+import ImpactStats from "@/components/ImpactStats";
+import InteractiveTerminal from "@/components/InteractiveTerminal";
+import ProjectShowcase from "@/components/ProjectShowcase";
+import SkillMatrix from "@/components/SkillMatrix";
+import ContactSection from "@/components/ContactSection";
 
 export default function Home() {
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
+  const [theme, setTheme] = useState<string>("cyber");
 
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 20 },
-    show: { 
-      opacity: 1, 
-      y: 0,
-      transition: { type: "spring", stiffness: 300, damping: 24 }
-    },
-  };
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+  }, [theme]);
 
   return (
-    <main className={styles.container}>
-      <header className={styles.header}>
-        <div className={styles.logo}>Ansh Surana</div>
-        <div className={styles.availabilityBadge}>
-          <span className={styles.pulse}></span>
-          Available for new projects
-        </div>
-      </header>
+    <main style={{ position: "relative", minHeight: "100vh", overflowX: "hidden" }}>
+      {/* Dynamic Interactive HTML5 Canvas Background */}
+      <ParticleBackground />
 
-      <motion.div 
-        className={styles.bentoGrid}
-        variants={containerVariants}
-        initial="hidden"
-        animate="show"
-      >
-        {/* Bio / Hero */}
-        <motion.div variants={itemVariants} className={`${styles.bentoCard} ${styles.heroCell}`}>
-          <h1 className={styles.title}>I ship things.<br/>Every day.</h1>
-          <p className={styles.subtitle}>
-            Obsessed with making AI build things so I don't have to. <br/>
-            Currently <span className={styles.highlight}>shipping something new every single day</span>.
-          </p>
-        </motion.div>
+      {/* Top Floating Glassmorphism Header */}
+      <HeaderNav currentTheme={theme} setTheme={setTheme} />
 
-        {/* Tech Stack */}
-        <motion.div variants={itemVariants} className={`${styles.bentoCard} ${styles.stackCell}`}>
-          <div className={styles.cardHeader}>
-            <span className={styles.cardTitle}>Stack</span>
-            <span className={styles.iconWrapper}><Cpu size={18} /></span>
-          </div>
-          <div className={styles.stackList}>
-            <div className={styles.stackItem}><Terminal size={16} /> Python</div>
-            <div className={styles.stackItem}><Code2 size={16} /> TypeScript</div>
-            <div className={styles.stackItem}><Sparkles size={16} /> Next.js</div>
-            <div className={styles.stackItem}><Smartphone size={16} /> Kotlin</div>
-            <div className={styles.stackItem}><Database size={16} /> PostgreSQL</div>
-          </div>
-        </motion.div>
+      {/* Hero Section */}
+      <HeroSection />
 
-        {/* Project 1 */}
-        <motion.div variants={itemVariants} className={`${styles.bentoCard} ${styles.projectCellWide}`}>
-          <div className={styles.cardHeader}>
-            <span className={styles.cardTitle}>AI Daily Builder</span>
-            <a href="https://github.com/Anshsurana123/ai-daily-builder" target="_blank" rel="noopener noreferrer" className={styles.iconWrapper}>
-              <ArrowUpRight size={18} />
-            </a>
-          </div>
-          <p className={styles.projectDesc}>
-            An AI that builds and ships new micro-projects every single day. Fully automated with GitHub Actions. Set it and forget it.
-          </p>
-          <div className={styles.projectTags}>
-            <span className={styles.tag}>Python</span>
-            <span className={styles.tag}>AI</span>
-            <span className={styles.tag}>Automation</span>
-          </div>
-        </motion.div>
+      {/* Impact Stats Counter */}
+      <ImpactStats />
 
-        {/* Project 2 */}
-        <motion.div variants={itemVariants} className={`${styles.bentoCard} ${styles.projectCellSmall}`}>
-          <div className={styles.cardHeader}>
-            <span className={styles.cardTitle}>Sark Pharma</span>
-            <a href="https://sarkpharmatechservices.vercel.app" target="_blank" rel="noopener noreferrer" className={styles.iconWrapper}>
-              <ArrowUpRight size={18} />
-            </a>
-          </div>
-          <p className={styles.projectDesc}>
-            Production full-stack web platform.
-          </p>
-          <div className={styles.projectTags}>
-            <span className={styles.tag}>Next.js</span>
-            <span className={styles.tag}>PostgreSQL</span>
-          </div>
-        </motion.div>
+      {/* Interactive CLI Console */}
+      <InteractiveTerminal />
 
-        {/* Project 3 */}
-        <motion.div variants={itemVariants} className={`${styles.bentoCard} ${styles.projectCellSmall}`}>
-          <div className={styles.cardHeader}>
-            <span className={styles.cardTitle}>Jago</span>
-            <a href="https://github.com/Anshsurana123/jago" target="_blank" rel="noopener noreferrer" className={styles.iconWrapper}>
-              <ArrowUpRight size={18} />
-            </a>
-          </div>
-          <p className={styles.projectDesc}>
-            Privacy-first offline Android AI assistant.
-          </p>
-          <div className={styles.projectTags}>
-            <span className={styles.tag}>Kotlin</span>
-            <span className={styles.tag}>Android</span>
-          </div>
-        </motion.div>
+      {/* Featured Projects Showcase & Specs */}
+      <ProjectShowcase />
 
-        {/* Project 4 */}
-        <motion.div variants={itemVariants} className={`${styles.bentoCard} ${styles.projectCellWide}`}>
-          <div className={styles.cardHeader}>
-            <span className={styles.cardTitle}>ChronoGuard AI</span>
-            <a href="https://github.com/Anshsurana123/ChronoGuard" target="_blank" rel="noopener noreferrer" className={styles.iconWrapper}>
-              <ArrowUpRight size={18} />
-            </a>
-          </div>
-          <p className={styles.projectDesc}>
-            Real-time video surveillance system with SAM 2 object tracking and privacy blurring. Distributed architecture with edge streaming and cloud inference.
-          </p>
-          <div className={styles.projectTags}>
-            <span className={styles.tag}>Python</span>
-            <span className={styles.tag}>Computer Vision</span>
-            <span className={styles.tag}>WebSockets</span>
-          </div>
-        </motion.div>
+      {/* Skill Matrix & Stack */}
+      <SkillMatrix />
 
-        {/* Project 5 */}
-        <motion.div variants={itemVariants} className={`${styles.bentoCard} ${styles.projectCellSmall}`}>
-          <div className={styles.cardHeader}>
-            <span className={styles.cardTitle}>Sentinel Engine</span>
-            <a href="https://github.com/Anshsurana123/sentinel" target="_blank" rel="noopener noreferrer" className={styles.iconWrapper}>
-              <ArrowUpRight size={18} />
-            </a>
-          </div>
-          <p className={styles.projectDesc}>
-            Student intelligence aggregator and academic lineage engine. Translates physics to calculus via Rosetta Engine and verifies claims with SVG-based evidence graphs.
-          </p>
-          <div className={styles.projectTags}>
-            <span className={styles.tag}>TypeScript</span>
-            <span className={styles.tag}>Next.js</span>
-            <span className={styles.tag}>AI Orchestration</span>
-          </div>
-        </motion.div>
-
-        {/* Project 6 */}
-        <motion.div variants={itemVariants} className={`${styles.bentoCard} ${styles.projectCellSmall}`}>
-          <div className={styles.cardHeader}>
-            <span className={styles.cardTitle}>Bifröst Dashboard</span>
-            <a href="https://github.com/Anshsurana123/bifrost-dashboard" target="_blank" rel="noopener noreferrer" className={styles.iconWrapper}>
-              <ArrowUpRight size={18} />
-            </a>
-          </div>
-          <p className={styles.projectDesc}>
-            Zero-trust API key management and AI proxy administration panel.
-          </p>
-          <div className={styles.projectTags}>
-            <span className={styles.tag}>TypeScript</span>
-            <span className={styles.tag}>Next.js</span>
-          </div>
-        </motion.div>
-
-        {/* Project 7 */}
-        <motion.div variants={itemVariants} className={`${styles.bentoCard} ${styles.projectCellWide}`}>
-          <div className={styles.cardHeader}>
-            <span className={styles.cardTitle}>Job Recruitment AI</span>
-            <a href="https://github.com/Anshsurana123/job-recruitment" target="_blank" rel="noopener noreferrer" className={styles.iconWrapper}>
-              <ArrowUpRight size={18} />
-            </a>
-          </div>
-          <p className={styles.projectDesc}>
-            Production-grade recruiting engine replacing keyword-matching ATS with a multi-agent SLM swarm. Features Career Velocity calculation, custom OCR resume parsing, and an interactive recruiter copilot.
-          </p>
-          <div className={styles.projectTags}>
-            <span className={styles.tag}>Python</span>
-            <span className={styles.tag}>FastAPI</span>
-            <span className={styles.tag}>SLM Swarm</span>
-            <span className={styles.tag}>OCR</span>
-          </div>
-        </motion.div>
-
-        {/* Project 8 */}
-        <motion.div variants={itemVariants} className={`${styles.bentoCard} ${styles.projectCellWide}`}>
-          <div className={styles.cardHeader}>
-            <span className={styles.cardTitle}>DevLens</span>
-            <a href="https://github.com/Anshsurana123/dev-lens-IBM-BOB" target="_blank" rel="noopener noreferrer" className={styles.iconWrapper}>
-              <ArrowUpRight size={18} />
-            </a>
-          </div>
-          <p className={styles.projectDesc}>
-            AI-powered developer tool providing instant, senior-level code reviews, OWASP security audits, and comprehensive repository documentation. Supports a Next.js interface and custom IDE slash commands.
-          </p>
-          <div className={styles.projectTags}>
-            <span className={styles.tag}>TypeScript</span>
-            <span className={styles.tag}>Next.js</span>
-            <span className={styles.tag}>Gemini AI</span>
-            <span className={styles.tag}>Developer Tool</span>
-          </div>
-        </motion.div>
-
-        {/* Contact Cell */}
-        <motion.div variants={itemVariants} className={`${styles.bentoCard} ${styles.contactCell}`}>
-          <div className={styles.contactText}>Let's build together.</div>
-          <a href="mailto:anshsuran01@gmail.com" className={styles.contactBtn}>
-            Start a conversation
-          </a>
-        </motion.div>
-
-        {/* Social Links Cell */}
-        <motion.div variants={itemVariants} className={styles.linksCell}>
-          <a href="https://github.com/Anshsurana123" target="_blank" rel="noopener noreferrer" className={styles.linkCard}>
-            <Globe size={24} />
-            <span style={{ fontSize: '0.8rem', fontWeight: 500 }}>GitHub</span>
-          </a>
-          <a href="mailto:anshsuran01@gmail.com" className={styles.linkCard}>
-            <Mail size={24} />
-            <span style={{ fontSize: '0.8rem', fontWeight: 500 }}>Email</span>
-          </a>
-        </motion.div>
-
-      </motion.div>
+      {/* Contact Section & Footer */}
+      <ContactSection />
     </main>
   );
 }

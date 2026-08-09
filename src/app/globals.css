@@ -1,12 +1,57 @@
-:root {
-  --bg-color: #030303;
-  --surface-color: #0f0f11;
-  --surface-border: #1f1f23;
-  --surface-hover: #161619;
-  --text-primary: #f0f0f0;
-  --text-secondary: #88888b;
-  --accent-blue: #2a6bbd; /* Subtle tinted blue, no neon */
-  --accent-blue-dim: rgba(42, 107, 189, 0.15);
+:root[data-theme="cyber"] {
+  --bg-color: #030712;
+  --bg-surface: rgba(15, 23, 42, 0.7);
+  --bg-surface-hover: rgba(30, 41, 59, 0.85);
+  --border-color: rgba(56, 189, 248, 0.15);
+  --border-color-hover: rgba(56, 189, 248, 0.4);
+  --accent-primary: #06b6d4;
+  --accent-secondary: #3b82f6;
+  --accent-glow: rgba(6, 182, 212, 0.35);
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --badge-bg: rgba(6, 182, 212, 0.12);
+}
+
+:root[data-theme="aurora"] {
+  --bg-color: #021a12;
+  --bg-surface: rgba(6, 44, 32, 0.7);
+  --bg-surface-hover: rgba(12, 64, 48, 0.85);
+  --border-color: rgba(52, 211, 153, 0.2);
+  --border-color-hover: rgba(52, 211, 153, 0.5);
+  --accent-primary: #10b981;
+  --accent-secondary: #06b6d4;
+  --accent-glow: rgba(16, 185, 129, 0.35);
+  --text-main: #f0fdf4;
+  --text-muted: #a7f3d0;
+  --badge-bg: rgba(16, 185, 129, 0.12);
+}
+
+:root[data-theme="violet"] {
+  --bg-color: #0f0728;
+  --bg-surface: rgba(27, 16, 62, 0.7);
+  --bg-surface-hover: rgba(43, 27, 94, 0.85);
+  --border-color: rgba(192, 132, 252, 0.2);
+  --border-color-hover: rgba(192, 132, 252, 0.5);
+  --accent-primary: #a855f7;
+  --accent-secondary: #ec4899;
+  --accent-glow: rgba(168, 85, 247, 0.35);
+  --text-main: #faf5ff;
+  --text-muted: #e9d5ff;
+  --badge-bg: rgba(168, 85, 247, 0.12);
+}
+
+:root[data-theme="sunset"] {
+  --bg-color: #1a0b06;
+  --bg-surface: rgba(48, 20, 12, 0.7);
+  --bg-surface-hover: rgba(74, 31, 18, 0.85);
+  --border-color: rgba(251, 146, 60, 0.2);
+  --border-color-hover: rgba(251, 146, 60, 0.5);
+  --accent-primary: #f97316;
+  --accent-secondary: #eab308;
+  --accent-glow: rgba(249, 115, 22, 0.35);
+  --text-main: #fff7ed;
+  --text-muted: #ffedd5;
+  --badge-bg: rgba(249, 115, 22, 0.12);
 }
 
 * {
@@ -15,25 +60,84 @@
   padding: 0;
 }
 
-body {
-  background-color: var(--bg-color);
-  color: var(--text-primary);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-  background-size: 40px 40px;
+html {
+  scroll-behavior: smooth;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary);
 }
 
 ::selection {
-  background-color: var(--accent-blue);
-  color: #fff;
+  background: var(--accent-primary);
+  color: #000;
+}
+
+/* Keyframes & Animations */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px var(--accent-glow);
+  }
+  50% {
+    box-shadow: 0 0 30px var(--accent-glow);
+  }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes floatAnim {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Utilities */
+.glass-card {
+  background: var(--bg-surface);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+  border-color: var(--border-color-hover);
+  box-shadow: 0 10px 30px -10px var(--accent-glow);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--text-main) 30%, var(--accent-primary) 70%, var(--accent-secondary) 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 6s ease infinite;
+}
+
+.accent-glow-text {
+  text-shadow: 0 0 20px var(--accent-glow);
 }
