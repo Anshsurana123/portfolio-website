@@ -107,42 +107,6 @@ export default function ProjectShowcase() {
       }
     },
     {
-      id: "ai-daily-builder",
-      title: "AI Daily Builder",
-      category: "ai",
-      shortDesc: "Autonomous AI system that constructs and deploys micro-applications every single day.",
-      fullDesc: "An end-to-end automated pipeline powered by Python agent orchestrators and GitHub Actions. Automatically generates code, runs lint & build validations, and deploys daily micro-apps.",
-      tech: ["Python", "AI Swarm", "GitHub Actions", "FastAPI"],
-      githubUrl: "https://github.com/Anshsurana123/ai-daily-builder",
-      specDetails: {
-        architecture: "Event-driven Python scheduler triggering agentic code generation workflows with isolated sandboxed test suites.",
-        highlights: [
-          "100% Zero-human intervention daily commit pipeline",
-          "Automated linting and test verification before deployment",
-          "Self-healing error recovery loop for broken builds"
-        ],
-        metrics: "42+ consecutive days without pipeline failures"
-      }
-    },
-    {
-      id: "sark-pharma",
-      title: "Sark Pharma",
-      category: "fullstack",
-      shortDesc: "Full-stack enterprise pharmaceutical tech services web platform.",
-      fullDesc: "Modern production web app for pharma tech operations. Built with Next.js App Router, TypeScript, PostgreSQL, and high-performance server components.",
-      tech: ["Next.js", "TypeScript", "PostgreSQL", "Tailwind/CSS"],
-      githubUrl: "https://github.com/Anshsurana123",
-      demoUrl: "https://sarkpharmatechservices.vercel.app",
-      specDetails: {
-        architecture: "Next.js App Router SSR architecture with Prisma ORM querying PostgreSQL database clusters.",
-        highlights: [
-          "Sub-50ms TTFB global edge deployment on Vercel",
-          "Strict HIPAA/compliance-friendly data modeling",
-          "100/100 Lighthouse performance and SEO score"
-        ]
-      }
-    },
-    {
       id: "sentinel-engine",
       title: "Sentinel Engine",
       category: "systems",
@@ -156,23 +120,6 @@ export default function ProjectShowcase() {
           "Rosetta Engine formula-to-calculus translator",
           "Interactive SVG academic proof visualizer",
           "Sub-second claim verification pipeline"
-        ]
-      }
-    },
-    {
-      id: "devlens",
-      title: "DevLens",
-      category: "ai",
-      shortDesc: "AI developer tool providing instant senior-level code reviews & OWASP security audits.",
-      fullDesc: "Developer productivity suite featuring code review agents, automated OWASP top 10 security scanner, and automatic repository documentation generator powered by Gemini AI.",
-      tech: ["TypeScript", "Next.js", "Gemini AI", "DevTools"],
-      githubUrl: "https://github.com/Anshsurana123/dev-lens-IBM-BOB",
-      specDetails: {
-        architecture: "AST parser inspecting code snippets and prompting specialized Gemini code audit models for vulnerability identification.",
-        highlights: [
-          "OWASP Top 10 security audit automation",
-          "Custom IDE slash command integration",
-          "Instant pull request diff reviewer"
         ]
       }
     }
@@ -197,7 +144,7 @@ export default function ProjectShowcase() {
           <Sparkles size={14} />
           <span>Selected Portfolio</span>
         </div>
-        <h2 className={styles.sectionTitle}>Top Featured Engineering Projects</h2>
+        <h2 className={styles.sectionTitle}>Featured Engineering Projects</h2>
         <p className={styles.sectionSub}>
           Click on any project to view complete system architecture, performance metrics, and specs.
         </p>

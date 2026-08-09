@@ -7,7 +7,7 @@ import styles from "./HeroSection.module.css";
 
 export default function HeroSection() {
   const roles = [
-    "AI Daily Builder",
+    "Vector DB Systems Developer",
     "Full-Stack Architect",
     "Computer Vision Specialist",
     "Autonomous Swarm Dev",

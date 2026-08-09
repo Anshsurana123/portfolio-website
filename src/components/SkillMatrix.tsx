@@ -24,7 +24,7 @@ export default function SkillMatrix() {
         { name: "PyTorch & OpenCV", level: 90, tag: "Vision Systems" },
         { name: "SAM 2 Tracking", level: 88, tag: "ChronoGuard AI" },
         { name: "SLM Swarm Orchestration", level: 92, tag: "Agentic Workflows" },
-        { name: "Gemini / LLM APIs", level: 95, tag: "DevLens / SDKs" },
+        { name: "Gemini / LLM APIs", level: 95, tag: "Agentic SDKs" },
       ],
     },
     {
@@ -44,7 +44,7 @@ export default function SkillMatrix() {
         { name: "GitHub Actions CI/CD", level: 92, tag: "Automated Shipping" },
         { name: "Docker & Containers", level: 85, tag: "Deployment" },
         { name: "Linux / Shell Scripting", level: 90, tag: "System Admin" },
-        { name: "OWASP & Security", level: 84, tag: "DevLens Audits" },
+        { name: "OWASP & Security", level: 84, tag: "Security Audits" },
       ],
     },
   ];
