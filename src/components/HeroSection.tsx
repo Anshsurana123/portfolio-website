@@ -5,6 +5,15 @@ import styles from "./HeroSection.module.css";
 import Link from "next/link";
 
 export default function HeroSection() {
+  const handleScrollToProjects = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const elem = document.getElementById("projects");
+    if (elem) {
+      elem.scrollIntoView({ behavior: "smooth" });
+      window.history.pushState(null, "", "#projects");
+    }
+  };
+
   return (
     <section className={styles.hero}>
       <motion.div
@@ -22,9 +31,9 @@ export default function HeroSection() {
           I write Rust, Go, and Python to build vector databases, voice AI, real-time vision systems, and production infrastructure. Open source everything.
         </p>
         <div className={styles.actions}>
-          <Link href="#projects" className={styles.primaryBtn}>
+          <a href="#projects" onClick={handleScrollToProjects} className={styles.primaryBtn}>
             See my work ↓
-          </Link>
+          </a>
           <a href="https://github.com/Anshsurana123" target="_blank" rel="noopener noreferrer" className={styles.secondaryBtn}>
             GitHub →
           </a>

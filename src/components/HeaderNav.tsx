@@ -21,6 +21,27 @@ export default function HeaderNav() {
     setIsMobileMenuOpen((prev) => !prev);
   };
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      const targetId = href.replace("#", "");
+      const elem = document.getElementById(targetId);
+      if (elem) {
+        elem.scrollIntoView({ behavior: "smooth" });
+        window.history.pushState(null, "", href);
+      }
+      setIsMobileMenuOpen(false);
+    }
+  };
+
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (window.location.hash) {
+      window.history.pushState(null, "", window.location.pathname);
+    }
+  };
+
   const navLinks = [
     { name: "Projects", href: "#projects" },
     { name: "Stack", href: "#stack" },
@@ -31,16 +52,21 @@ export default function HeaderNav() {
   return (
     <header className={`${styles.header} ${isScrolled ? styles.scrolled : ""}`}>
       <div className={styles.container}>
-        <div className={styles.logoContainer}>
+        <a href="#" onClick={handleLogoClick} className={styles.logoContainer}>
           <div className={styles.logoMark}>AS</div>
           <span className={styles.logoText}>Ansh Surana</span>
-        </div>
+        </a>
 
         <nav className={styles.desktopNav}>
           {navLinks.map((link) => (
-            <Link key={link.name} href={link.href} className={styles.link}>
+            <a
+              key={link.name}
+              href={link.href}
+              onClick={(e) => handleNavClick(e, link.href)}
+              className={styles.link}
+            >
               {link.name}
-            </Link>
+            </a>
           ))}
         </nav>
 
@@ -58,14 +84,14 @@ export default function HeaderNav() {
       {isMobileMenuOpen && (
         <div className={styles.mobileNav}>
           {navLinks.map((link) => (
-            <Link 
+            <a 
               key={link.name} 
               href={link.href} 
               className={styles.mobileLink}
-              onClick={() => setIsMobileMenuOpen(false)}
+              onClick={(e) => handleNavClick(e, link.href)}
             >
               {link.name}
-            </Link>
+            </a>
           ))}
         </div>
       )}

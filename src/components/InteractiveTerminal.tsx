@@ -25,10 +25,12 @@ export default function InteractiveTerminal() {
     },
   ]);
 
-  const terminalEndRef = useRef<HTMLDivElement | null>(null);
+  const consoleBodyRef = useRef<HTMLDivElement | null>(null);
 
   const scrollToBottom = () => {
-    terminalEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    if (consoleBodyRef.current) {
+      consoleBodyRef.current.scrollTop = consoleBodyRef.current.scrollHeight;
+    }
   };
 
   useEffect(() => {
@@ -131,7 +133,7 @@ export default function InteractiveTerminal() {
       </div>
 
       <div className={styles.terminalBox}>
-        <div className={styles.consoleBody}>
+        <div ref={consoleBodyRef} className={styles.consoleBody}>
           {logs.map((log, i) => (
             <div key={i} className={styles.logItem}>
               {log.command && (
@@ -143,7 +145,6 @@ export default function InteractiveTerminal() {
               <div className={styles.outputLine}>{log.output}</div>
             </div>
           ))}
-          <div ref={terminalEndRef} />
         </div>
 
         <div className={styles.inputBar}>
